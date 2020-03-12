@@ -1,14 +1,11 @@
 package hu.bosslac.roulette;
 
-import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.PrimitiveIterator;
-import java.util.Random;
 
-public class Roulette63System {
+public class Roulette63System extends BaseGame {
 	
 	static int baseBet = 1;
-	static int balance = 5000;
 	static int countLoose = 0;
 	
 	int[] random;
@@ -23,7 +20,6 @@ public class Roulette63System {
 	
 
 	public void playTheGame() {
-		
 		
 		final PrimitiveIterator.OfInt rndIterator = Arrays.stream(random).iterator();
 		
@@ -51,14 +47,4 @@ public class Roulette63System {
 		
 		System.out.println("REAL LOOSE count " + countLoose);
 	}
-
-	
-	static void bet(int bet) {
-		balance = balance - bet;	
-	}
-	
-	static void win(int won) {
-		balance = balance + won;	
-	}
-
 }

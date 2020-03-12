@@ -17,7 +17,8 @@ public class Main {
 		
 		RandomOrgClient roc = RandomOrgClient.getRandomOrgClient(RANDOM_ORG_API_KEY);
 		try {
-			int[] randoms = new int[10000];
+			int[] randoms = new int[1000];
+			boolean[] isRed = new boolean[randoms.length];
 			
 //			if (EUROEPEN_ROULETTE) {
 //				randoms = roc.generateIntegers(randoms.length, 0, 36);
@@ -27,12 +28,20 @@ public class Main {
 			
 			SecureRandom rd = new SecureRandom();
 			
-			for (int i = 0; i < randoms.length; i++)
+			
+			for (int i = 0; i < randoms.length; i++) {
 				randoms[i] = rd.nextInt(37);
+				isRed[i] = rd.nextBoolean();
+			}
 			
 			
 			//new Roulette63System(randoms, 5).playTheGame();
-			new Martingale(randoms).playTheGame();
+			//new Martingale(randoms).playTheGame();
+			
+			//new FourLinesStrategy(randoms).playTheGame();
+			//new ElevenLinesStrategy(randoms).playTheGame();
+			
+			new RedAndBlackPairsStrategy(randoms, isRed).playTheGame();
 			
 		    System.out.println(Arrays.toString(randoms));
 		} catch (Exception e) {
