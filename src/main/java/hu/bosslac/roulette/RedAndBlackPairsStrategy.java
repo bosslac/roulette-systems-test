@@ -18,14 +18,12 @@ public class RedAndBlackPairsStrategy extends BaseGame {
 	int baseBet = 1;
 	int countLoose = 0;
 	int maxBetCount = 0;
-	int[] random;
 	boolean[] isRed;
 	
 	List<Integer> blackPairList = Arrays.asList(8, 11, 10, 13, 17, 20, 26, 29, 28, 30);
 
 	public RedAndBlackPairsStrategy(int[] random, boolean[] isRed) {
-		super();
-		this.random = random;
+		super(random);
 		this.isRed = isRed;
 	}
 	

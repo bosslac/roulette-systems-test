@@ -1,20 +1,19 @@
 package hu.bosslac.roulette;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.PrimitiveIterator;
 
-/**
- * https://www.youtube.com/watch?v=lVlMLfBU5q4
- * @author bosslac
- *
- */
-public class ElevenLinesStrategy extends BaseGame {
+public class RomanoskyStrategy extends BaseGame {
 
 	int baseBet = 1;
+	int dozenBaseBet = 3;
 	int countLoose = 0;
 	int maxBetCount = 0;
-
-	public ElevenLinesStrategy(int[] random) {
+	
+	List<Integer> squaresNumbers = Arrays.asList(1, 2, 4, 5, 8, 9, 11, 12);
+	
+	public RomanoskyStrategy(int[] random) {
 		super(random);
 	}
 
@@ -25,21 +24,23 @@ public class ElevenLinesStrategy extends BaseGame {
 		
 		while(rndIterator.hasNext()) {
 			
-			int winCount = 1;
+			int looseCuont = 1;
 			
-			for (int i = 0; i <= winCount && rndIterator.hasNext(); i++) {
+			for (int i = 0; looseCuont < 12 && rndIterator.hasNext(); i++) {
 				
-				int bet = baseBet * winCount * 11;
+				int singleSquareBet = baseBet * (looseCuont + 1);
+				int singleDozenBet = dozenBaseBet * (looseCuont + 1);
+				int bet = 2 * (singleDozenBet + singleSquareBet);
 				bet(bet);
 				
 				int spin = rndIterator.nextInt();
 				
-				if ((spin >= 4 && spin <= 6) || (spin >= 31 && spin <= 33)) {
-					win(baseBet * 6);
+				if (squaresNumbers.contains(spin) ) {
+					win(singleSquareBet * 8);
 					System.out.println("WIN " + spin +  " bet: " + bet + " balance: " + balance);
 					//winCount++;
-				} else if (spin >= 7 && spin <= 30) {
-					win(baseBet * 12);
+				} else if (spin >= 13 && spin <= 36) {
+					win(singleDozenBet * 3);
 					System.out.println("WIN " + spin +  " bet: " + bet + " balance: " + balance);
 					//winCount++;
 				} else {
@@ -51,8 +52,5 @@ public class ElevenLinesStrategy extends BaseGame {
 		
 		System.out.println("REAL LOOSE count " + countLoose);
 	}
-	
-	
-	
-	
+
 }

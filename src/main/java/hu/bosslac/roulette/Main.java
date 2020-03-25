@@ -20,19 +20,19 @@ public class Main {
 			int[] randoms = new int[1000];
 			boolean[] isRed = new boolean[randoms.length];
 			
-//			if (EUROEPEN_ROULETTE) {
-//				randoms = roc.generateIntegers(randoms.length, 0, 36);
-//			} else {
-//				randoms = roc.generateIntegers(randoms.length, -1, 36);
-//			}
+			if (EUROEPEN_ROULETTE) {
+				randoms = roc.generateIntegers(randoms.length, 0, 36);
+			} else {
+				randoms = roc.generateIntegers(randoms.length, -1, 36);
+			}
 			
 			SecureRandom rd = new SecureRandom();
 			
 			
-			for (int i = 0; i < randoms.length; i++) {
-				randoms[i] = rd.nextInt(37);
-				isRed[i] = rd.nextBoolean();
-			}
+//			for (int i = 0; i < randoms.length; i++) {
+//				randoms[i] = rd.nextInt(37);
+//				isRed[i] = rd.nextBoolean();
+//			}
 			
 			
 			//new Roulette63System(randoms, 5).playTheGame();
@@ -41,7 +41,8 @@ public class Main {
 			//new FourLinesStrategy(randoms).playTheGame();
 			//new ElevenLinesStrategy(randoms).playTheGame();
 			
-			new RedAndBlackPairsStrategy(randoms, isRed).playTheGame();
+			//new RedAndBlackPairsStrategy(randoms, isRed).playTheGame();
+			new RomanoskyStrategy(randoms).playTheGame();
 			
 		    System.out.println(Arrays.toString(randoms));
 		} catch (Exception e) {

@@ -8,13 +8,11 @@ public class Roulette63System extends BaseGame {
 	static int baseBet = 1;
 	static int countLoose = 0;
 	
-	int[] random;
 	int betCount = 5;
 	
 	
 	public Roulette63System(int[] random, int betCount) {
-		super();
-		this.random = random;
+		super(random);
 		this.betCount = betCount;
 	}
 	

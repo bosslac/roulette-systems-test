@@ -13,11 +13,9 @@ public class FourLinesStrategy extends BaseGame {
 	int baseBet = 1;
 	int countLoose = 0;
 	int maxBetCount = 0;
-	int[] random;
 
 	public FourLinesStrategy(int[] random) {
-		super();
-		this.random = random;
+		super(random);
 	}
 
 	@Override
