@@ -6,6 +6,7 @@ import java.util.Arrays;
 import org.random.api.RandomOrgClient;
 
 // feature1
+// feature 2
 
 public class Main {
 
