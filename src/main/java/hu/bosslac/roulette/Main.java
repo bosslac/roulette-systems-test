@@ -11,6 +11,7 @@ import org.random.api.RandomOrgClient;
 public class Main {
 
 	// master commit
+	// master commit 2
 
 	private final static String RANDOM_ORG_API_KEY = "197a9cab-b928-4c42-846f-b059b2217d5a";
 	
